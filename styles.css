@@ -6,6 +6,7 @@
   --muted: #a9b3c7;
   --teal: #4de1d1;
   --crimson: #b8324c;
+  --gold: #ffd27a;
   --line: rgba(255, 255, 255, 0.12);
   --shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
 }
@@ -27,6 +28,11 @@ body {
     var(--bg);
   color: var(--text);
   line-height: 1.6;
+}
+
+body.intro-active {
+  overflow: hidden;
+  height: 100vh;
 }
 
 a {
@@ -245,6 +251,202 @@ h2 {
   text-align: center;
 }
 
+/* PROJECT LIGHTHOUSE INTRO v0.2 */
+
+.intro-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 32%, rgba(255, 210, 122, 0.10), transparent 26%),
+    radial-gradient(circle at 45% 55%, rgba(77, 225, 209, 0.12), transparent 35%),
+    linear-gradient(180deg, #02040a 0%, #07111c 55%, #02040a 100%);
+  display: grid;
+  place-items: center;
+  transition: opacity 1s ease, visibility 1s ease;
+}
+
+.intro-screen.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.skip-intro {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 20;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.08);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 0.7rem 1rem;
+  font-weight: 800;
+}
+
+.intro-fog {
+  position: absolute;
+  inset: -30%;
+  background:
+    radial-gradient(circle at 30% 40%, rgba(255,255,255,0.10), transparent 16%),
+    radial-gradient(circle at 70% 55%, rgba(77,225,209,0.10), transparent 20%),
+    radial-gradient(circle at 45% 70%, rgba(184,50,76,0.08), transparent 18%);
+  filter: blur(34px);
+  animation: fogDrift 7s ease-in-out infinite alternate;
+}
+
+.intro-light {
+  position: absolute;
+  left: 50%;
+  top: 18%;
+  width: 130vw;
+  height: 32vh;
+  transform-origin: left center;
+  background: linear-gradient(90deg, rgba(255,220,145,0.38), transparent 72%);
+  clip-path: polygon(0 42%, 100% 0, 100% 100%, 0 58%);
+  animation: lighthouseSweep 4.2s ease-in-out infinite;
+  opacity: 0;
+}
+
+.kid-silhouette {
+  position: relative;
+  width: 170px;
+  height: 270px;
+  transform: translateY(38px);
+  opacity: 0;
+  animation:
+    kidReveal 1.6s ease forwards 1.4s,
+    kidBreathe 3s ease-in-out infinite 3s;
+  z-index: 5;
+}
+
+.kid-hood {
+  width: 138px;
+  height: 130px;
+  margin: 0 auto;
+  border-radius: 48% 48% 40% 40%;
+  background: linear-gradient(145deg, #05070d, #111827);
+  border: 1px solid rgba(77,225,209,0.38);
+  box-shadow:
+    0 0 35px rgba(77,225,209,0.18),
+    inset 0 -22px 34px rgba(184,50,76,0.18);
+  animation: lookBack 4.2s ease forwards 2.4s;
+}
+
+.kid-body {
+  width: 170px;
+  height: 150px;
+  margin-top: -12px;
+  border-radius: 45% 45% 20px 20px;
+  background: linear-gradient(180deg, #080b12, #030409);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 0 45px rgba(184,50,76,0.22);
+}
+
+.intro-text {
+  position: absolute;
+  bottom: 12%;
+  text-align: center;
+  padding: 0 1rem;
+  opacity: 0;
+  transform: translateY(18px);
+  animation: introTextIn 1.2s ease forwards 2.7s;
+  z-index: 6;
+}
+
+.intro-text p {
+  color: var(--teal);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-weight: 900;
+}
+
+.intro-text h2 {
+  font-size: clamp(1.5rem, 6vw, 3rem);
+  color: var(--text);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fogDrift {
+  from {
+    transform: translate(-4%, -2%) scale(1);
+  }
+
+  to {
+    transform: translate(4%, 3%) scale(1.08);
+  }
+}
+
+@keyframes lighthouseSweep {
+  0% {
+    transform: rotate(-26deg);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.75;
+  }
+
+  55% {
+    opacity: 0.45;
+  }
+
+  100% {
+    transform: rotate(22deg);
+    opacity: 0;
+  }
+}
+
+@keyframes kidReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes kidBreathe {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(-3px) scale(1.012);
+  }
+}
+
+@keyframes lookBack {
+  0%, 35% {
+    transform: rotate(0deg);
+  }
+
+  60% {
+    transform: rotate(-4deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes introTextIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (max-width: 900px) {
   .site-header {
     align-items: flex-start;
@@ -279,137 +481,4 @@ h2 {
     margin: 3rem 6%;
     padding: 2rem;
   }
-}
-
-.intro-screen {
-  position: fixed;
-  inset: 0;
-  z-index: 999;
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-  background:
-    radial-gradient(circle at center, rgba(77, 225, 209, 0.12), transparent 35%),
-    linear-gradient(180deg, #02040a, #07111c 55%, #02040a);
-  transition: opacity 1s ease, visibility 1s ease;
-}
-
-.intro-screen.hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-.intro-fog {
-  position: absolute;
-  width: 180%;
-  height: 180%;
-  background:
-    radial-gradient(circle, rgba(255,255,255,0.08), transparent 12%),
-    radial-gradient(circle, rgba(77,225,209,0.08), transparent 18%);
-  filter: blur(30px);
-  animation: drift 8s ease-in-out infinite alternate;
-}
-
-.intro-light {
-  position: absolute;
-  width: 70vw;
-  height: 70vw;
-  background: conic-gradient(from 120deg, transparent, rgba(77,225,209,0.28), transparent 25%);
-  animation: sweep 5s ease-in-out infinite;
-}
-
-.kid-silhouette {
-  position: relative;
-  width: 170px;
-  height: 260px;
-  animation: riseIn 1.8s ease forwards;
-}
-
-.kid-hood {
-  width: 140px;
-  height: 130px;
-  margin: 0 auto;
-  border-radius: 50% 50% 42% 42%;
-  background: linear-gradient(145deg, #05070d, #111827);
-  border: 1px solid rgba(77,225,209,0.35);
-  box-shadow: 0 0 35px rgba(77,225,209,0.18), inset 0 -20px 35px rgba(184,50,76,0.18);
-}
-
-.kid-body {
-  width: 170px;
-  height: 150px;
-  margin-top: -12px;
-  border-radius: 45% 45% 18px 18px;
-  background: linear-gradient(180deg, #080b12, #030409);
-  border: 1px solid rgba(255,255,255,0.08);
-  box-shadow: 0 0 45px rgba(184,50,76,0.22);
-}
-
-.intro-text {
-  position: absolute;
-  bottom: 12%;
-  text-align: center;
-  padding: 0 1rem;
-  animation: textFade 2.2s ease forwards;
-}
-
-.intro-text p {
-  color: var(--teal);
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  font-weight: 900;
-}
-
-.intro-text h2 {
-  font-size: clamp(1.5rem, 6vw, 3rem);
-}
-
-.skip-intro {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  z-index: 1000;
-  border: 1px solid var(--line);
-  background: rgba(255,255,255,0.08);
-  color: var(--text);
-  border-radius: 999px;
-  padding: 0.7rem 1rem;
-  font-weight: 800;
-}
-
-@keyframes drift {
-  from { transform: translate(-4%, -3%) scale(1); }
-  to { transform: translate(4%, 3%) scale(1.08); }
-}
-
-@keyframes sweep {
-  from { transform: rotate(-18deg); opacity: 0.35; }
-  to { transform: rotate(18deg); opacity: 0.75; }
-}
-
-@keyframes riseIn {
-  from { transform: translateY(40px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-@keyframes textFade {
-  from { opacity: 0; transform: translateY(18px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-body.intro-active {
-  overflow: hidden;
-  height: 100vh;
 }
