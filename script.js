@@ -4,14 +4,21 @@ const skipIntro = document.querySelector("#skipIntro");
 function closeIntro() {
   if (!intro) return;
   intro.classList.add("hidden");
+  document.body.classList.remove("intro-active");
   sessionStorage.setItem("projectLighthouseIntroSeen", "true");
 }
 
 if (intro) {
+  document.body.classList.add("intro-active");
+
+  if (window.location.hash) {
+    history.replaceState(null, "", window.location.pathname);
+  }
+
   const alreadySeen = sessionStorage.getItem("projectLighthouseIntroSeen");
 
   if (alreadySeen) {
-    intro.classList.add("hidden");
+    closeIntro();
   } else {
     setTimeout(closeIntro, 4200);
   }
