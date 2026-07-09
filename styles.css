@@ -482,3 +482,40 @@ h2 {
     padding: 2rem;
   }
 }
+
+.intro-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 1;
+  animation: introImageDrift 6s ease-in-out forwards;
+}
+
+.intro-screen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background:
+    linear-gradient(180deg, rgba(2,4,10,0.15), rgba(2,4,10,0.5)),
+    radial-gradient(circle at center, transparent 30%, rgba(2,4,10,0.45));
+  pointer-events: none;
+}
+
+.intro-text,
+.skip-intro {
+  z-index: 5;
+}
+
+@keyframes introImageDrift {
+  from {
+    transform: scale(1.04);
+  }
+
+  to {
+    transform: scale(1.1);
+  }
+}
