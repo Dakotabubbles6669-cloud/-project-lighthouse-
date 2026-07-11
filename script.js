@@ -14,6 +14,20 @@ const roomAction = document.querySelector('#roomAction');
 
 function enterLighthouse() {
   if (!arrival) return;
+  if (arrival.classList.contains('is-opening')) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    skipLighthouse();
+    return;
+  }
+  arrival.classList.add('is-opening');
+  document.body.classList.remove('arrival-active');
+  sessionStorage.setItem('projectLighthouseArrivalSeen', 'true');
+  window.setTimeout(() => arrival.classList.add('is-inside'), 1550);
+  window.setTimeout(() => arrival.classList.add('is-hidden'), 2850);
+}
+
+function skipLighthouse() {
+  if (!arrival) return;
   arrival.classList.add('is-hidden');
   document.body.classList.remove('arrival-active');
   sessionStorage.setItem('projectLighthouseArrivalSeen', 'true');
@@ -62,5 +76,5 @@ if (arrival) {
 }
 
 enterButton?.addEventListener('click', enterLighthouse);
-skipButton?.addEventListener('click', enterLighthouse);
+skipButton?.addEventListener('click', skipLighthouse);
 buildRoomExplorer();
