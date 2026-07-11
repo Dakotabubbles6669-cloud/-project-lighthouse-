@@ -1,222 +1,41 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Dakota Dorrough | Project Lighthouse</title>
-
-  <meta
-    name="description"
-    content="Dakota Dorrough's professional portfolio for game design, QA, creative systems, and multimedia projects."
-  />
-
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Project Lighthouse - Dakota Dorrough's professional portfolio and creative headquarters for game design, QA, music, and systems thinking.">
+  <title>Project Lighthouse | Dakota Dorrough</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-  <div id="intro" class="intro-screen">
-  <button id="skipIntro" class="skip-intro">Skip Intro</button>
-
-<img
-  src="assets/images/5408BBFF-5A8C-406F-9BAD-A39289D4931B.png"
-  class="intro-image"
-  alt="Project Lighthouse intro artwork"
-/>
-
-  <div class="intro-text">
-    <p>Project Lighthouse</p>
-    <h2>Come in. There’s work to see.</h2>
+  <div class="arrival" id="arrival" aria-labelledby="arrival-title">
+    <picture class="arrival-art">
+      <source media="(max-width: 620px)" srcset="assets/images/lighthouse-arrival-mobile.jpg">
+      <source media="(max-width: 1024px)" srcset="assets/images/lighthouse-arrival-tablet.jpg">
+      <img src="assets/images/lighthouse-arrival-desktop.jpg" alt="A stormy approach to Project Lighthouse">
+    </picture>
+    <div class="rain" aria-hidden="true"></div><div class="arrival-shade" aria-hidden="true"></div>
+    <div class="arrival-copy"><p class="overline">Dakota Dorrough presents</p><h1 id="arrival-title">Project<br>Lighthouse</h1><p class="arrival-tagline">Come in. There's work to see.</p><button class="enter-button" id="enterButton" type="button">Enter the lighthouse <span aria-hidden="true">&rarr;</span></button></div>
+    <button class="skip-button" id="skipButton" type="button">Skip arrival</button>
   </div>
-</div>
-  <header class="site-header">
-    <a class="logo" href="#home" aria-label="Project Lighthouse home">
-      Project Lighthouse
-    </a>
 
-    <nav class="nav-links" aria-label="Main navigation">
-      <a href="#projects">Projects</a>
-      <a href="#thinking">How I Think</a>
-      <a href="#resume">Resume</a>
-      <a href="#creative">Creative</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header"><a class="wordmark" href="#home" aria-label="Project Lighthouse home"><span class="wordmark-mark" aria-hidden="true">&#10022;</span><span>Project Lighthouse</span></a><nav aria-label="Primary navigation"><a href="#work">Work</a><a href="#office">Career</a><a href="#studio">Music</a><a href="#rooms">Rooms</a><a class="nav-contact" href="#contact">Contact</a></nav></header>
 
-  <main id="home">
-    <section class="hero">
-      <div class="hero-content">
-        <p class="eyebrow">Professional Portfolio & Creative Headquarters</p>
+  <main id="main">
+    <section class="welcome" id="home" aria-labelledby="welcome-title"><div class="welcome-copy"><p class="overline">A living creative headquarters</p><h2 id="welcome-title">Everything has<br><em>a place.</em></h2><p class="lede">Project Lighthouse is Dakota Dorrough's professional home for game design, quality assurance, music, concepts, and the work still taking shape.</p><div class="action-row"><a class="button button-primary" href="#work">Explore current work</a><a class="button button-quiet" href="#office">View career snapshot</a></div></div><aside class="welcome-card" aria-label="Current focus"><p class="card-label">On the worktable</p><h3>Building thoughtful experiences.</h3><p>Current focus: stronger game-design and QA case studies, a growing creative catalog, and systems that hold up under real use.</p><div class="status-line"><span></span> Active work in progress</div></aside></section>
 
-        <h1>Dakota Dorrough</h1>
+    <section class="section current-work" id="work" aria-labelledby="work-title"><div class="section-heading"><p class="overline">The active workspace</p><h2 id="work-title">Work with purpose.</h2><p>These are the disciplines currently on the desk. Finished work belongs in the archive; current work stays visible, useful, and moving forward.</p></div><div class="work-grid"><article class="work-card work-card-wide"><p class="card-label">Game development lab</p><h3>Game Design &amp; QA</h3><p>Gameplay systems, player experience analysis, test thinking, bug documentation, and practical polish.</p><a href="#office">See the career office <span aria-hidden="true">&rarr;</span></a></article><article class="work-card"><p class="card-label">Music studio</p><h3>KidAither</h3><p>Songwriting, visual direction, release planning, and a long-form creative identity.</p><a href="#studio">Visit the studio <span aria-hidden="true">&rarr;</span></a></article><article class="work-card"><p class="card-label">Concept workshop</p><h3>Creative Systems</h3><p>AI experiments, worldbuilding, concept development, and structured creative iteration.</p><a href="#rooms">See the room map <span aria-hidden="true">&rarr;</span></a></article></div></section>
 
-        <p class="tagline">
-          Game Design Graduate • QA Enthusiast • Creative Technologist
-        </p>
+    <section class="section office" id="office" aria-labelledby="office-title"><div class="office-window" aria-hidden="true"><span></span><span></span><span></span></div><div class="section-heading"><p class="overline">Career office</p><h2 id="office-title">Recruiter-first, always.</h2><p>The professional essentials stay easy to find. Immersion adds context; it never hides the work.</p></div><div class="office-layout"><article class="resume-card"><p class="card-label">Current file</p><h3>Dakota Dorrough</h3><p class="role-line">Game Design Graduate &middot; QA Enthusiast &middot; Creative Technologist</p><ul><li>Game systems, mechanics, and player experience</li><li>Quality assurance thinking and edge-case analysis</li><li>Customer support, accuracy, and operations experience</li><li>Creative direction and long-term project ownership</li></ul><a class="button button-primary" href="mailto:Dakota.bubbles6669@gmail.com">Start a conversation</a></article><div class="experience-list" aria-label="Experience highlights"><article><span>01</span><div><h3>Home Depot</h3><p>Pro Desk support, quotes, order accuracy, and real-time problem solving.</p></div></article><article><span>02</span><div><h3>Walmart Digital</h3><p>Speed, fulfillment accuracy, task management, and customer-focused execution.</p></div></article><article><span>03</span><div><h3>Full Sail University</h3><p>Game Design coursework centered on systems, mechanics, and creative development.</p></div></article></div></div></section>
 
-        <p class="intro">
-          I enjoy building thoughtful experiences, improving complex systems,
-          and bringing ideas to life through design, technology, and creativity.
-        </p>
+    <section class="section studio" id="studio" aria-labelledby="studio-title"><div class="studio-copy"><p class="overline">Music studio</p><h2 id="studio-title">One room.<br>Many frequencies.</h2><p>KidAither lives here - not as the whole building, but as one of the creative systems that makes the lighthouse personal.</p></div><div class="studio-console" aria-label="KidAither studio placeholder"><div class="console-lights" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div><p class="card-label">Studio inventory</p><h3>New releases, visual identity, and lore will live here.</h3><p>Final music, branding, and character assets will be placed deliberately as they are ready - not guessed into existence.</p></div></section>
 
-        <div class="button-row">
-          <a class="button primary" href="#projects">View My Work</a>
-          <a class="button secondary" href="#resume">View Resume</a>
-        </div>
-      </div>
+    <section class="section rooms" id="rooms" aria-labelledby="rooms-title"><div class="section-heading"><p class="overline">Permanent room map</p><h2 id="rooms-title">The building stays.<br>The work moves.</h2><p>Choose a room to see the active object and the archive that keeps finished work organized.</p></div><div class="room-explorer"><div class="room-grid" id="roomGrid" aria-label="Project Lighthouse room directory"></div><article class="room-detail" id="roomDetail" aria-live="polite" aria-labelledby="roomDetailTitle"><p class="card-label" id="roomDetailEyebrow">Choose a room</p><div class="room-detail-heading"><span id="roomDetailNumber">00</span><h3 id="roomDetailTitle">The building is ready.</h3></div><p id="roomDetailDescription">Select a permanent room to see what is active now and how its archive stays organized.</p><div class="object-layout"><section class="active-object" aria-labelledby="activeLabel"><p class="card-label" id="activeLabel">Active space</p><p id="activeContent">Current work remains visible and useful.</p></section><section class="archive-object" aria-labelledby="archiveLabel"><p class="card-label" id="archiveLabel">Archive space</p><ul id="archiveList"><li>Organized history belongs here.</li></ul></section></div><a class="button button-quiet room-action" id="roomAction" href="#rooms">Explore this space</a></article></div></section>
 
-      <aside class="hero-card" aria-label="Portfolio focus">
-        <p class="card-label">Project Lighthouse v0.1</p>
-        <h2>Build thoughtfully. Learn constantly. Leave things better.</h2>
-        <p>
-          A living professional home for game design, QA work, creative systems,
-          music, writing, and long-term growth.
-        </p>
-      </aside>
-    </section>
-
-    <section id="projects" class="section">
-      <div class="section-heading">
-        <p class="eyebrow">Featured Work</p>
-        <h2>Projects with purpose</h2>
-        <p>
-          This site is built to show not only what I make, but how I think,
-          test, improve, and finish work.
-        </p>
-      </div>
-
-      <div class="project-grid">
-        <article class="project-card">
-          <span class="project-icon">🎮</span>
-          <h3>Game Design</h3>
-          <p>
-            Gameplay concepts, systems, mechanics, design documents, and player
-            experience breakdowns.
-          </p>
-        </article>
-
-        <article class="project-card">
-          <span class="project-icon">🛠️</span>
-          <h3>Quality Assurance</h3>
-          <p>
-            Bug reports, testing methods, UI critique, edge-case thinking, and
-            practical polish.
-          </p>
-        </article>
-
-        <article class="project-card">
-          <span class="project-icon">🎵</span>
-          <h3>KidAither</h3>
-          <p>
-            Songwriting, branding, creative direction, release planning, and
-            long-term multimedia development.
-          </p>
-        </article>
-
-        <article class="project-card">
-          <span class="project-icon">💡</span>
-          <h3>Creative Systems</h3>
-          <p>
-            AI-assisted workflows, worldbuilding, concept development, and
-            structured creative iteration.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <section id="thinking" class="section split-section">
-      <div>
-        <p class="eyebrow">How I Think</p>
-        <h2>Systems first. Details always.</h2>
-      </div>
-
-      <div class="panel">
-        <p>
-          I like understanding how moving parts connect before trying to improve
-          them. Whether I am testing a game, helping a customer, writing a song,
-          or building a concept, I look for patterns, friction points, and the
-          small details that shape the final experience.
-        </p>
-
-        <ul class="principles-list">
-          <li>Understand the system before judging the surface.</li>
-          <li>Find friction before forcing solutions.</li>
-          <li>Balance creativity with practical follow-through.</li>
-          <li>Reflect, improve, and keep building.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="resume" class="section">
-      <div class="section-heading">
-        <p class="eyebrow">Resume Snapshot</p>
-        <h2>Experience built in the real world</h2>
-      </div>
-
-      <div class="timeline">
-        <article class="timeline-item">
-          <h3>Home Depot</h3>
-          <p>
-            Pro Desk associate focused on customer support, quotes, order
-            accuracy, problem solving, and fast-moving retail operations.
-          </p>
-        </article>
-
-        <article class="timeline-item">
-          <h3>Walmart Digital Shopper</h3>
-          <p>
-            Built speed, accuracy, task management, fulfillment habits, and
-            customer-focused execution.
-          </p>
-        </article>
-
-        <article class="timeline-item">
-          <h3>Marshalls</h3>
-          <p>
-            Developed retail fundamentals, communication, organization, and
-            service experience.
-          </p>
-        </article>
-
-        <article class="timeline-item">
-          <h3>Full Sail University</h3>
-          <p>
-            Completed Game Design coursework focused on game systems, mechanics,
-            and creative development.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <section id="creative" class="section creative-section">
-      <div class="section-heading">
-        <p class="eyebrow">Creative Direction</p>
-        <h2>More than one lane</h2>
-        <p>
-          KidAither and other creative work show long-term commitment, visual
-          identity, storytelling, iteration, and project ownership.
-        </p>
-      </div>
-    </section>
-
-    <section id="contact" class="section contact-section">
-      <p class="eyebrow">Contact</p>
-      <h2>Let’s build something better.</h2>
-      <p>
-        For professional opportunities, QA roles, game design discussions, or
-        creative collaboration, reach out by email.
-      </p>
-
-      <a class="button primary" href="mailto:Dakota.bubbles6669@gmail.com">
-        Email Dakota
-      </a>
-    </section>
+    <section class="contact" id="contact" aria-labelledby="contact-title"><p class="overline">Keep the light on</p><h2 id="contact-title">Let's build something better.</h2><p>For professional opportunities, QA roles, game design conversations, or creative collaboration.</p><a class="button button-primary" href="mailto:Dakota.bubbles6669@gmail.com">Email Dakota</a></section>
   </main>
-
-  <footer class="site-footer">
-    <p>© 2026 Dakota Dorrough. Project Lighthouse v0.1.</
-</footer>
-
-<script src="script.js"></script>
+  <footer><span>&copy; 2026 Dakota Dorrough</span><span>Project Lighthouse &middot; Controlled Chaos</span></footer>
+  <script src="content.js"></script><script src="script.js"></script>
 </body>
 </html>
